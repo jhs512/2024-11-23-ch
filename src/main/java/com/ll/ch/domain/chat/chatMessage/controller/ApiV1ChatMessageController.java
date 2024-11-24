@@ -17,12 +17,13 @@ import java.util.Map;
         origins = "https://cdpn.io"
 )
 public class ApiV1ChatMessageController {
+    private int lastChatMessageId = 0;
     private final Map<Integer, List<ChatMessage>> chatMessagesByRoomId = new HashMap<>() {{
         put(1, new ArrayList<>() {{
             add(
                     ChatMessage
                             .builder()
-                            .id(1)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(1)
@@ -34,7 +35,7 @@ public class ApiV1ChatMessageController {
             add(
                     ChatMessage
                             .builder()
-                            .id(2)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(1)
@@ -47,7 +48,7 @@ public class ApiV1ChatMessageController {
             add(
                     ChatMessage
                             .builder()
-                            .id(3)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(2)
@@ -59,7 +60,7 @@ public class ApiV1ChatMessageController {
             add(
                     ChatMessage
                             .builder()
-                            .id(4)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(2)
@@ -72,7 +73,7 @@ public class ApiV1ChatMessageController {
             add(
                     ChatMessage
                             .builder()
-                            .id(5)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(3)
@@ -84,7 +85,7 @@ public class ApiV1ChatMessageController {
             add(
                     ChatMessage
                             .builder()
-                            .id(6)
+                            .id(++lastChatMessageId)
                             .createDate(LocalDateTime.now())
                             .modifyDate(LocalDateTime.now())
                             .chatRoomId(3)
@@ -141,7 +142,7 @@ public class ApiV1ChatMessageController {
 
         ChatMessage chatMessage = ChatMessage
                 .builder()
-                .id(chatMessages.size() + 1)
+                .id(++lastChatMessageId)
                 .createDate(LocalDateTime.now())
                 .modifyDate(LocalDateTime.now())
                 .chatRoomId(chatRoomId)
