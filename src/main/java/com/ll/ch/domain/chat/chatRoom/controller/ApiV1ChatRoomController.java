@@ -1,6 +1,7 @@
 package com.ll.ch.domain.chat.chatRoom.controller;
 
 import com.ll.ch.domain.chat.chatRoom.entity.ChatRoom;
+import com.ll.ch.standard.util.Ut;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
@@ -74,6 +75,9 @@ public class ApiV1ChatRoomController {
     public ChatRoom createChatRoom(
             @RequestBody ChatCreateReqBody reqBody
     ) {
+        // 통신지연을 일부러 발생시키는 코드
+        Ut.thread.sleep(500);
+
         ChatRoom chatRoom = ChatRoom
                 .builder()
                 .id(chatRooms.size() + 1)
